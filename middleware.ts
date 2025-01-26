@@ -1,24 +1,14 @@
-import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-export async function middleware(req: NextRequest) {
-  try {
-    const res = NextResponse.next()
-    const supabase = createMiddlewareClient({ req, res })
-    await supabase.auth.getSession()
-    return res
-  } catch (e) {
-    // If Supabase fails, return the response without blocking the request
-    return NextResponse.next()
-  }
+export function middleware(request: NextRequest) {
+  return NextResponse.next()
 }
 
-// Specify which paths should use the middleware
 export const config = {
   matcher: [
-    // Only run on specific paths that need auth
-    '/protected/:path*',
-    '/api/:path*'
+    // Skip all internal paths (_next)
+    // Skip all static files (static, images, favicon)
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 }
