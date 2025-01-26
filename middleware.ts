@@ -3,26 +3,22 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export async function middleware(req: NextRequest) {
-  const res = NextResponse.next()
-  const supabase = createMiddlewareClient({ req, res })
-
-  const {
-    data: { session },
-  } = await supabase.auth.getSession()
-
-  return res
+  try {
+    const res = NextResponse.next()
+    const supabase = createMiddlewareClient({ req, res })
+    await supabase.auth.getSession()
+    return res
+  } catch (e) {
+    // If Supabase fails, return the response without blocking the request
+    return NextResponse.next()
+  }
 }
 
 // Specify which paths should use the middleware
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - public folder
-     */
-    '/((?!_next/static|_next/image|favicon.ico|public/).*)',
+    // Only run on specific paths that need auth
+    '/protected/:path*',
+    '/api/:path*'
   ],
 }
