@@ -1,4 +1,4 @@
-import { products, getProductBySlug } from "@/lib/mock-products"
+import { Product, products, getProductBySlug } from "@/lib/mock-products"
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -8,11 +8,23 @@ import { Banner } from "@/components/ui/banner"
 // Import Next.js page types
 import { Metadata } from 'next'
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Product Details',
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
+// Generate static params at build time
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    slug: product.slug,
+  }))
+}
+
+// Simplified page component with direct params type
+export default function ProductPage({
+  params,
+}: {
+  params: { slug: string }
+}) {
   const product = getProductBySlug(params.slug)
   
   if (!product) {
@@ -69,11 +81,4 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </div>
     </Container>
   )
-}
-
-// Generate static params at build time
-export function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }))
 } 
