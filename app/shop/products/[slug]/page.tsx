@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   title: 'Product Details',
 }
 
-export default function ProductPage(props: any) {
-  const product = getProductBySlug(props.params.slug)
+export default function ProductPage({ params }: { params: { slug: string } }) {
+  const product = getProductBySlug(params.slug)
   
   if (!product) {
     notFound()
@@ -71,6 +71,7 @@ export default function ProductPage(props: any) {
   )
 }
 
+// Generate static params at build time
 export function generateStaticParams() {
   return products.map((product) => ({
     slug: product.slug,
