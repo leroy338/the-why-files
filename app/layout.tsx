@@ -8,19 +8,15 @@ import "./globals.css";
 import InfoBar from '@/components/info-bar'
 import { Footer } from "@/components/footer";
 
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
-
 export const metadata = {
-  metadataBase: new URL(defaultUrl),
   title: "The Why Files",
   description: "Debunking the myths of the world - one file at a time. Or not.",
 };
 
 const geistSans = Geist({
-  display: "swap",
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-geist-sans",
 });
 
 const defaultTheme = 'light'
@@ -55,40 +51,19 @@ const questionMarkPositions = [
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={geistSans.className} suppressHydrationWarning>
-      <body className="bg-background text-foreground">
+    <html lang="en" className={geistSans.variable}>
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative min-h-screen">
-            {/* Background gradient and question marks */}
-            <div className="fixed inset-0 -z-10">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-gray-200/70 to-emerald-300/80 dark:from-gray-900/50 dark:via-gray-900/30 dark:to-emerald-900/50" />
-              
-              {/* Question mark pattern */}
-              <div className="absolute inset-0 overflow-hidden">
-                {questionMarkPositions.map((position, i) => (
-                  <div
-                    key={i}
-                    className="absolute text-emerald-600/5 text-6xl font-bold select-none"
-                    style={{
-                      left: position.left,
-                      top: position.top,
-                    }}
-                  >
-                    ?
-                  </div>
-                ))}
-              </div>
-            </div>
-
+          <div className="flex flex-col min-h-screen">
             <InfoBar />
             <main className="min-h-screen flex flex-col items-center pt-16">
               <div className="flex-1 w-full flex flex-col gap-12 sm:gap-16 md:gap-20 items-center">
