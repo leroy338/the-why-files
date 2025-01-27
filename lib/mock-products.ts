@@ -5,24 +5,18 @@ export interface Product {
   description: string
   price: number
   image: string
+  link: string
 }
 
 export const products: Product[] = [
-  {
-    id: '1',
-    slug: 'product-1',
-    title: 'Product 1',
-    description: 'Description for product 1',
-    price: 29.99,
-    image: '/products/product-1.jpg'
-  },
   {
     id: "fear-the-crabcat-tshirt",
     title: "Fear the Crabcat T-Shirt",
     description: "Show your love for the mysterious Crabcat with this unique design featuring our favorite feline cryptid.",
     price: 24.99,
     image: "/products/crabcat-tshirt.webp",
-    slug: "fear-the-crabcat-tshirt"
+    slug: "fear-the-crabcat-tshirt",
+    link: "/shop/products/fear-the-crabcat-tshirt"
   },
   {
     id: "camp-green-foot-tshirt",
@@ -30,7 +24,8 @@ export const products: Product[] = [
     description: "Vintage-style camp design featuring the elusive Bigfoot. Perfect for cryptid hunters and outdoor enthusiasts.",
     price: 24.99,
     image: "/products/camp-green-foot-tshirt.webp",
-    slug: "camp-green-foot-tshirt"
+    slug: "camp-green-foot-tshirt",
+    link: "/shop/products/camp-green-foot-tshirt"
   },
   {
     id: "hecklefish-president-tshirt",
@@ -38,7 +33,8 @@ export const products: Product[] = [
     description: "Support the aquatic candidate with this whimsical political parody shirt featuring our favorite mysterious fish.",
     price: 24.99,
     image: "/products/hecklefish-tshirt.webp",
-    slug: "hecklefish-president-tshirt"
+    slug: "hecklefish-president-tshirt",
+    link: "/shop/products/hecklefish-president-tshirt"
   },
   {
     id: "goldfish-conspiracy-tshirt",
@@ -46,7 +42,8 @@ export const products: Product[] = [
     description: "What do goldfish know that we don't? Rock this mysterious goldfish design and question everything.",
     price: 24.99,
     image: "/products/hecklefish-tshirt.webp",
-    slug: "goldfish-conspiracy-tshirt"
+    slug: "goldfish-conspiracy-tshirt",
+    link: "/shop/products/goldfish-conspiracy-tshirt"
   },
   {
     id: "lizzid-peeple-vitruvian-hoody",
@@ -54,7 +51,8 @@ export const products: Product[] = [
     description: "Vitruvian monster design featuring detailed cryptid anatomy. Perfect for those chilly investigation nights.",
     price: 49.99,
     image: "/products/lizzid-peeple-vitruvian-hoody.webp",
-    slug: "cryptid-anatomy-hoodie"
+    slug: "cryptid-anatomy-hoodie",
+    link: "/shop/products/cryptid-anatomy-hoodie"
   },
   {
     id: "roswell-tshirt",
@@ -62,7 +60,8 @@ export const products: Product[] = [
     description: "Official gear of the classified Roswell cleanup crew. Perfect for UFO enthusiasts and conspiracy theorists.",
     price: 24.99,
     image: "/products/roswell-tshirt.webp",
-    slug: "roswell-disposal-tshirt"
+    slug: "roswell-disposal-tshirt",
+    link: "/shop/products/roswell-disposal-tshirt"
   },
   {
     id: "why-files-university-hoody",
@@ -70,7 +69,8 @@ export const products: Product[] = [
     description: "Rep your alma mater of mystery with this collegiate-style Why Files University hoodie.",
     price: 49.99,
     image: "/products/why-files-university-hoody.webp",
-    slug: "why-files-university-hoodie"
+    slug: "why-files-university-hoodie",
+    link: "/shop/products/why-files-university-hoodie"
   },
   {
     id: "why-files-university-tshirt",
@@ -78,7 +78,8 @@ export const products: Product[] = [
     description: "The classic WF University tee - because some mysteries require higher education.",
     price: 24.99,
     image: "/products/why-files-university-tshirt.webp",
-    slug: "why-files-university-tshirt"
+    slug: "why-files-university-tshirt",
+    link: "/shop/products/why-files-university-tshirt"
   }
 ]
 

@@ -1,6 +1,5 @@
-import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import Link from "next/link";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import InfoBar from '@/components/info-bar'
 import { Footer } from "@/components/footer";
@@ -15,8 +14,6 @@ const geistSans = Geist({
   display: "swap",
   variable: "--font-geist-sans",
 });
-
-const defaultTheme = 'light'
 
 // Fixed positions for question marks to avoid hydration issues
 const questionMarkPositions = [
@@ -52,8 +49,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={geistSans.variable}>
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${geistSans.variable} bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -8,7 +8,7 @@ interface ProductCardProps {
   description: string
   price: number
   image: string
-  slug: string
+  link: string
 }
 
 export function ProductCard({
@@ -16,7 +16,7 @@ export function ProductCard({
   description,
   price,
   image,
-  slug
+  link
 }: ProductCardProps) {
   return (
     <Card className="overflow-hidden">
@@ -36,7 +36,7 @@ export function ProductCard({
             ${price.toFixed(2)}
           </span>
           <Button size="sm" asChild>
-            <Link href={`/shop/products/${slug}`}>
+            <Link href={link}>
               View Details
             </Link>
           </Button>
