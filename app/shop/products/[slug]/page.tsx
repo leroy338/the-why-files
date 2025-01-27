@@ -1,30 +1,22 @@
-import { Product, products, getProductBySlug } from "@/lib/mock-products"
+import { products, getProductBySlug } from "@/lib/mock-products"
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
 import { Banner } from "@/components/ui/banner"
-
-// Import Next.js page types
 import { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Product Details',
 }
 
-// Generate static params at build time
-export async function generateStaticParams() {
-  return products.map((product) => ({
+export function generateStaticParams() {
+  return products.map(product => ({
     slug: product.slug,
   }))
 }
 
-// Simplified page component with direct params type
-export default function ProductPage({
-  params,
-}: {
-  params: { slug: string }
-}) {
+export default function Page({ params }: any) {
   const product = getProductBySlug(params.slug)
   
   if (!product) {
@@ -35,7 +27,6 @@ export default function ProductPage({
     <Container>
       <div className="py-6 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {/* Product Image */}
           <div className="relative aspect-square">
             <Image
               src={product.image}
@@ -45,8 +36,6 @@ export default function ProductPage({
               priority
             />
           </div>
-
-          {/* Product Details */}
           <div className="flex flex-col gap-4">
             <Banner variant="top">
               <div className="space-y-4">
@@ -62,8 +51,6 @@ export default function ProductPage({
                 </div>
               </div>
             </Banner>
-
-            {/* Additional Product Details */}
             <Banner variant="bottom">
               <div className="space-y-4">
                 <h2 className="text-xl font-semibold">Product Details</h2>
