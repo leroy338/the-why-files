@@ -1,7 +1,5 @@
 import Hero from "@/components/hero";
 import { Hero2 } from "@/components/hero-2";
-import ConnectSupabaseSteps from "@/components/tutorial/connect-supabase-steps";
-import SignUpUserSteps from "@/components/tutorial/sign-up-user-steps";
 import UpcomingEpisodes from '@/components/upcoming-episodes';
 import VoteTracking from '@/components/vote-tracking';
 import CTABanner from '@/components/cta-banner';
