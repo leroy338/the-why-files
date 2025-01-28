@@ -8,6 +8,9 @@ const nextConfig = {
       allowedOrigins: ['localhost:3000'],
     },
   },
+  speedInsights: {
+    enabled: true,
+  },
 }
 
 module.exports = nextConfig 
