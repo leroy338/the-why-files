@@ -4,6 +4,7 @@ import "./globals.css";
 import InfoBar from '@/components/info-bar'
 import { Footer } from "@/components/footer";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "The Why Files",
@@ -67,6 +68,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} bg-background text-foreground`}>
         <Analytics />
+        <SpeedInsights />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
