@@ -67,6 +67,21 @@ export default function RootLayout({
                 <Footer />
               </div>
             </main>
+            {/* Wrap the SVGs in a fixed container with a negative z-index */}
+            <div className="fixed inset-0 -z-10">
+              {questionMarkPositions.map((pos, index) => (
+                <svg
+                  key={index}
+                  className="absolute text-red-500 opacity-10"
+                  style={{ left: pos.left, top: pos.top, width: '3rem', height: '3rem' }}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm1.07-7.75c-.9.92-1.07 1.25-1.07 2.25h-2v-.5c0-1.1.45-1.79 1.07-2.41.63-.63 1.13-1.13 1.13-2.09 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.39-.56 2.14-1.93 3.25z" />
+                </svg>
+              ))}
+            </div>
           </div>
         </ThemeProvider>
       </body>

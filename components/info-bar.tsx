@@ -33,7 +33,6 @@ export default function InfoBar() {
   }
 
   const navigationItems = [
-    { label: 'The Fix', href: '/the-fix' },
     { label: 'Shop', href: '/shop' },
     { label: 'Schedule', href: '/schedule' },
     { label: 'Contact', href: '/contact' },
@@ -86,10 +85,10 @@ export default function InfoBar() {
             </Button>
             <Button
               variant="outline"
-              onClick={() => router.push('/login')}
+              onClick={() => router.push('/the-fix')}
               className="font-normal"
             >
-              Sign In
+              Choose Your Platform
             </Button>
             <Button
               onClick={() => router.push('/signup')}
