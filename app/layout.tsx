@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import InfoBar from '@/components/info-bar'
 import { Footer } from "@/components/footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "The Why Files",
@@ -65,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} bg-background text-foreground`}>
+        <Analytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
