@@ -7,6 +7,20 @@ import { Footer } from "@/components/footer";
 export const metadata = {
   title: "The Why Files",
   description: "Debunking the myths of the world - one file at a time. Or not.",
+  icons: {
+    icon: [
+      { url: '/logo-1.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/logo-1.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: [
+      { url: '/logo-1.png', type: 'image/png' },
+    ],
+    other: [
+      { rel: 'icon', url: '/logo-1.png' },
+    ],
+  },
 };
 
 const geistSans = Geist({
